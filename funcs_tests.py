@@ -25,7 +25,8 @@ class TestCases(unittest.TestCase):
       row = [1, 2, 6, 4, 5]
       self.assertFalse(check_row(row), False)
 
-   
+
+
 
    def test_check_rows0(self):
       puzzle = []
@@ -63,6 +64,16 @@ class TestCases(unittest.TestCase):
       puzzle.append([3, 3, 0, 1, 2])
       puzzle.append([0, 0, 0, 0, 0])
       self.assertFalse(check_rows_valid(puzzle), False)
+
+   def test_check_rows4(self):
+      puzzle = []
+      puzzle.append([0, 0, 0, 0, 0])
+      puzzle.append([0, 0, 0, 0, 0])
+      puzzle.append([0, 0, 0, 0, 0])
+      puzzle.append([0, 0, 0, 0, 0])
+      puzzle.append([0, 0, 0, 0, 6])
+      self.assertFalse(check_rows_valid(puzzle), False) 
+
 
 
 
@@ -107,18 +118,13 @@ class TestCases(unittest.TestCase):
       puzzle.append([0, 0, 0, 0, 0])
       puzzle.append([0, 0, 0, 0, 0])
       puzzle.append([0, 0, 0, 1, 0])
-      puzzle.append([0, 0, 0, 1, 0])
       puzzle.append([0, 0, 0, 0, 0])
-      self.assertFalse(check_column(puzzle, 3), False)
+      puzzle.append([0, 0, 0, 0, 6])
+      self.assertFalse(check_column(puzzle, 4), False)
 
 
 
 
-
-
-
-
-'''  
    def test_check_columns0(self):
       puzzle = []
       puzzle.append([5, 1, 2, 3, 4])
@@ -126,8 +132,39 @@ class TestCases(unittest.TestCase):
       puzzle.append([2, 3, 0, 5, 1])
       puzzle.append([3, 0, 0, 1, 2])
       puzzle.append([0, 0, 0, 0, 0])
-      self.assertTrue(check_columns_valid(puzzle))
-      
+      self.assertTrue(check_columns_valid(puzzle), True)
+
+   def test_check_columns1(self):
+      puzzle = []
+      puzzle.append([5, 1, 2, 3, 4])
+      puzzle.append([1, 2, 3, 4, 5])
+      puzzle.append([2, 3, 0, 5, 1])
+      puzzle.append([5, 0, 0, 1, 2])
+      puzzle.append([0, 0, 0, 0, 0])
+      self.assertFalse(check_columns_valid(puzzle), False)
+
+   def test_check_columns2(self):
+      puzzle = []
+      puzzle.append([5, 1, 2, 3, 4])
+      puzzle.append([1, 2, 3, 4, 5])
+      puzzle.append([2, 3, 0, 5, 0])
+      puzzle.append([3, 0, 0, 1, 0])
+      puzzle.append([0, 0, 3, 0, 0])
+      self.assertFalse(check_columns_valid(puzzle), False) 
+
+   def test_check_columns03(self):
+      puzzle = []
+      puzzle.append([5, 1, 2, 3, 4])
+      puzzle.append([1, 2, 3, 4, 5])
+      puzzle.append([2, 3, 0, 5, 1])
+      puzzle.append([3, 0, 0, 1, 2])
+      puzzle.append([0, 0, 0, 0, 6])
+      self.assertFalse(check_columns_valid(puzzle), False)
+
+
+    
+'''
+ 
    def test_check_cages0(self):
       puzzle = []
       puzzle.append([5, 1, 2, 3, 4])

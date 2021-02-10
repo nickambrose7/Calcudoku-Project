@@ -7,13 +7,15 @@ def check_rows_valid(puzzle):
 
 	for i in range(len(puzzle)):
 		
-		if check_row(puzzle[i]):
+		if check_row(puzzle[i]) == False: #loops through 'i' arguemnet so that every row is checked.
 			
-			return True
+			return False #We return false here because the function has done its job if it finds a row is false
 		
 		else:
 			
-			return False
+			func_works = True #We do not return true here becuase we want the funciton to keep running
+
+	return func_works
 
        
 def check_row(row):
@@ -30,7 +32,21 @@ def check_row(row):
 
 
 def check_columns_valid(puzzle):
-   pass
+
+	for i in range(len(puzzle)):
+		
+		if check_column(puzzle, i) == False: #loops through 'i' arguemnet so that every column is checked.
+			
+			return False #We return false here because the function has done its job if it finds a column is false
+		
+		else:
+			
+			func_works = True #We do not return true here becuase we want the funciton to keep running
+
+	return func_works
+   
+
+
 
 def check_column(puzzle, col_num):
 
