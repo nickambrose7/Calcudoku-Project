@@ -4,10 +4,18 @@
 # row, check a single column, and check a single cage.
 
 def check_rows_valid(puzzle):
+
+
    pass
        
 def check_row(row):
-	pass
+	
+	for i in range(len(row)):
+		for j in range(len(row)):
+			if row[i] == row[j] and i != j and row[i] != 0 and row[j] != 0: #compares every number in the list and ensures there are no duplicates AT DIFFERENT INDEXES. Excludes 0.
+				return False
+
+	return True
 
 
 def check_columns_valid(puzzle):
@@ -22,7 +30,7 @@ def check_cages_valid(puzzle, cages):
 
 def check_cage(puzzle, cage):
 	pass
-	
+
        
 def check_valid(puzzle, cages):
    pass

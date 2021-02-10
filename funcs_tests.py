@@ -5,6 +5,22 @@ class TestCases(unittest.TestCase):
       
    # ADD MORE TESTS!!!! 
 
+   def test_check_row1(self):
+      row = [1, 2, 3, 4, 5]
+      self.assertTrue(check_row(row), True)
+
+   def test_check_row2(self):
+      row = [1, 2, 1, 4, 5]
+      self.assertFalse(check_row(row), False)
+
+   def test_check_row3(self):
+      row = [1, 0, 0, 0, 0]
+      self.assertTrue(check_row(row), True)
+
+   def test_check_row4(self):
+      row = [1, 1, 1, 1, 0]
+      self.assertFalse(check_row(row), False)
+'''
    def test_check_rows0(self):
       puzzle = []
       puzzle.append([5, 1, 2, 3, 4])
@@ -48,7 +64,7 @@ class TestCases(unittest.TestCase):
       cages.append([7, 3, 2, 6, 7])
       cages.append([9, 2, 4, 9])
       self.assertTrue(check_valid(puzzle, cages))
-
+'''
 # Run the unit tests.
 if __name__ == '__main__':
    unittest.main()
