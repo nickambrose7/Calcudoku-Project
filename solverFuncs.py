@@ -5,8 +5,19 @@
 
 def check_rows_valid(puzzle):
 
+	for i in range(len(puzzle)):
+		
+		if check_row(puzzle[i]):
+			return True
+		else:
+			return False
+		
 
-   pass
+	
+
+		
+
+   
        
 def check_row(row):
 	
