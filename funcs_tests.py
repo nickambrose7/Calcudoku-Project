@@ -20,6 +20,10 @@ class TestCases(unittest.TestCase):
    def test_check_row4(self):
       row = [1, 1, 1, 1, 0]
       self.assertFalse(check_row(row), False)
+
+   def test_check_row5(self):
+      row = [1, 2, 6, 4, 5]
+      self.assertFalse(check_row(row), False)
 '''
    def test_check_rows0(self):
       puzzle = []

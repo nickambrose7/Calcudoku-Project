@@ -12,7 +12,7 @@ def check_row(row):
 	
 	for i in range(len(row)):
 		for j in range(len(row)):
-			if row[i] == row[j] and i != j and row[i] != 0 and row[j] != 0: #compares every number in the list and ensures there are no duplicates AT DIFFERENT INDEXES. Excludes 0.
+			if row[i] == row[j] and i != j and row[i] != 0 and row[j] != 0 or row[i] > 5 and row[j] > 5: #compares every number in the list and ensures there are no duplicates AT DIFFERENT INDEXES. Excludes 0. returns False if value in row is greater than 5
 				return False
 
 	return True
