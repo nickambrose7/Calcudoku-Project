@@ -17,7 +17,7 @@ def check_rows_valid(puzzle):
 
 	return func_works
 
-       
+		 
 def check_row(row):
 	
 	for i in range(len(row)):
@@ -44,7 +44,7 @@ def check_columns_valid(puzzle):
 			func_works = True #We do not return true here becuase we want the funciton to keep running
 
 	return func_works
-   
+	
 
 
 
@@ -72,14 +72,82 @@ def check_column(puzzle, col_num):
 
 
 def check_cages_valid(puzzle, cages):
-   pass
-
-def check_cage(puzzle, cage):
 	pass
 
-       
+def check_cage(puzzle, cage):
+	
+	s = 0  #keeps track of the sum of the cage
+
+	desired_sum = cage[0] #pulls desired sum out of cage list
+
+	full = True #we will assume the cage is full until proven otherwise
+
+	if s < desired_sum: # This might be redundant but I will keep in in anyways
+
+		for i in range(2, len(cage)): #We start at index 2 in the cage list because that is where the square numbers are listed
+
+			square = cage[i] #We must get the value of the square so that we can convert to row and col
+
+			row = square_to_row(square) # must call this function first becuase we need the row for the next function (square_to_col)
+
+			col = square_to_col(square, row)
+
+			value = puzzle[row][col] #Now that we have converted square # to row and col, we can access the value in the puzzle list
+
+			s += value # we add the value in the puzzle to the total sum of the cage
+
+			if value == 0: # A zero value indicates the cage is not yet full
+
+				full = False
+
+		if full == False and s > desired_sum: #If we have exceed the desired sum while the cage is not full, the cage is not valid
+			
+			return False
+
+		elif full == True and s == desired_sum: #If the cage is full and the desired sum has been reached, the cage is valid
+			
+			return True
+
+		elif full == False and s < desired_sum: #As long as the cage is not full and the sum is less than the desired sum, the cage is still valid
+
+			return True
+		
+
+def square_to_row(square):
+
+	if square <= 4:
+
+		row = 0
+
+	elif square > 4 and square <= 9:
+
+		row = 1
+
+	elif square > 9 and square <= 14:
+
+		row = 2
+
+	elif square > 14 and square <= 19:
+
+		row = 3
+
+	else:
+		row = 4
+
+	return row
+
+
+def square_to_col(square, row):
+
+	col = square - (row * 5) #This is the only equation I could come up with to get the column
+
+	return col
+
+
+
+		 
 def check_valid(puzzle, cages):
-   pass
+	pass
 
 def get_cages():
-   pass
+	pass
