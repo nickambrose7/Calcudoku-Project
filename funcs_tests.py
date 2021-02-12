@@ -243,6 +243,18 @@ class TestCases(unittest.TestCase):
       puzzle.append([3, 0, 0, 1, 2])
       puzzle.append([0, 0, 0, 0, 0])
       self.assertTrue(check_cage(puzzle, cage), True)
+
+   def test_check_cage6(self):
+      cage = [8, 3, 4, 9, 14]
+      puzzle = []
+      puzzle.append([5, 3, 2, 3, 4])
+      puzzle.append([1, 2, 3, 4, 4])
+      puzzle.append([2, 3, 0, 5, 5])
+      puzzle.append([3, 0, 0, 1, 2])
+      puzzle.append([0, 0, 0, 0, 0])
+      self.assertFalse(check_cage(puzzle, cage), False)
+
+
 '''
  
    def test_check_cages0(self):

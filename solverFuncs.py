@@ -100,7 +100,7 @@ def check_cage(puzzle, cage):
 
 				full = False
 
-		if full == False and s > desired_sum: #If we have exceed the desired sum while the cage is not full, the cage is not valid
+		if full == False and s >= desired_sum: #If we have exceed the desired sum while the cage is not full, the cage is not valid
 			
 			return False
 
@@ -111,6 +111,12 @@ def check_cage(puzzle, cage):
 		elif full == False and s < desired_sum: #As long as the cage is not full and the sum is less than the desired sum, the cage is still valid
 
 			return True
+
+		elif full == True and s != desired_sum: #Cage is full but not equal to the desired sum.
+
+			return False
+
+			
 		
 
 def square_to_row(square):
