@@ -316,7 +316,7 @@ class TestCases(unittest.TestCase):
       
  
 
-'''
+
    def test_check_valid0(self):
       puzzle = []
       puzzle.append([5, 1, 2, 3, 4])
@@ -329,7 +329,7 @@ class TestCases(unittest.TestCase):
       cages.append([7, 3, 2, 6, 7])
       cages.append([9, 2, 4, 9])
       self.assertTrue(check_valid(puzzle, cages))
-'''
+
 
 
 

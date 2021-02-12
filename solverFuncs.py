@@ -165,7 +165,7 @@ def square_to_col(square, row):
 
 		 
 def check_valid(puzzle, cages):
-	pass
+	return check_cages_valid(puzzle, cages) and check_columns_valid(puzzle) and check_rows_valid(puzzle)
 
 def get_cages():
 	pass
