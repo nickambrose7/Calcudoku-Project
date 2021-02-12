@@ -72,7 +72,19 @@ def check_column(puzzle, col_num):
 
 
 def check_cages_valid(puzzle, cages):
-	pass
+	
+	for i in range(len(cages)):
+
+		if check_cage(puzzle, cages[i]):
+
+			return True
+
+		else:
+
+			return False
+		
+
+
 
 def check_cage(puzzle, cage):
 	
