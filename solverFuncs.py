@@ -167,5 +167,51 @@ def square_to_col(square, row):
 def check_valid(puzzle, cages):
 	return check_cages_valid(puzzle, cages) and check_columns_valid(puzzle) and check_rows_valid(puzzle)
 
+
+
 def get_cages():
-	pass
+
+	num_of_cages = int(input('Number of cages: '))
+
+	list_of_cages = []
+
+	for i in range(num_of_cages):
+
+		list_of_strings = []
+
+		list_of_ints = [] #must define inside the for loop so that it becomes empty each time the loop runs
+
+		user_input = input('Cage number ' +  str(i) + ': ')
+
+		list_of_strings = user_input.split() #takes user input and turns it into a list of strings
+
+		#for i in range(len(list_of_strings)):
+
+		list_of_ints = [int(i) for i in list_of_strings] #changes the list of stings into a list of ints
+
+		list_of_cages.append(list_of_ints) #puts the list of ints inside the list of cages
+
+	return list_of_cages
+
+
+
+print(get_cages())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
