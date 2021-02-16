@@ -71,17 +71,15 @@ def check_column(puzzle, col_num):
 	
 
 
-def check_cages_valid(puzzle, cages):
+def check_cages_valid(puzzle, cages): #what is wrong with this function?
 	
 	for i in range(len(cages)):
 
-		if check_cage(puzzle, cages[i]):
-
-			return True
-
-		else:
+		if check_cage(puzzle, cages[i]) == False:
 
 			return False
+
+	return True
 		
 
 
@@ -94,39 +92,38 @@ def check_cage(puzzle, cage):
 
 	full = True #we will assume the cage is full until proven otherwise
 
-	if s < desired_sum: # This might be redundant but I will keep in in anyways
+	for i in range(2, len(cage)): #We start at index 2 in the cage list because that is where the square numbers are listed
 
-		for i in range(2, len(cage)): #We start at index 2 in the cage list because that is where the square numbers are listed
-
-			square = cage[i] #We must get the value of the square so that we can convert to row and col
-
-			row = square_to_row(square) # must call this function first becuase we need the row for the next function (square_to_col)
-
-			col = square_to_col(square, row)
-
-			value = puzzle[row][col] #Now that we have converted square # to row and col, we can access the value in the puzzle list
-
-			s += value # we add the value in the puzzle to the total sum of the cage
-
-			if value == 0: # A zero value indicates the cage is not yet full
-
-				full = False
-
-		if full == False and s >= desired_sum: #If we have exceed the desired sum while the cage is not full, the cage is not valid
+		square = cage[i] #We must get the value of the square so that we can convert to row and col
 			
-			return False
+		row = square_to_row(square) # must call this function first becuase we need the row for the next function (square_to_col)
 
-		elif full == True and s == desired_sum: #If the cage is full and the desired sum has been reached, the cage is valid
+		col = square_to_col(square, row)
 			
-			return True
+		value = puzzle[row][col] #Now that we have converted square # to row and col, we can access the value in the puzzle list
 
-		elif full == False and s < desired_sum: #As long as the cage is not full and the sum is less than the desired sum, the cage is still valid
+		if value == 0: # A zero value indicates the cage is not yet full
+				
+			full = False
 
-			return True
+		s += value # we add the value in the puzzle to the total sum of the cage
 
-		elif full == True and s != desired_sum: #Cage is full but not equal to the desired sum.
 
-			return False
+	if full == False and s >= desired_sum: #If we have exceed the desired sum while the cage is not full, the cage is not valid
+
+		return False
+
+	elif full == True and s == desired_sum: #If the cage is full and the desired sum has been reached, the cage is valid
+			
+		return True
+
+	elif full == False and s < desired_sum: #As long as the cage is not full and the sum is less than the desired sum, the cage is still valid
+
+		return True
+
+	elif full == True and s != desired_sum: #Cage is full but not equal to the desired sum.
+
+		return False
 
 			
 		
@@ -165,7 +162,13 @@ def square_to_col(square, row):
 
 		 
 def check_valid(puzzle, cages):
-	return check_cages_valid(puzzle, cages) and check_columns_valid(puzzle) and check_rows_valid(puzzle)
+	if check_cages_valid(puzzle, cages) and check_columns_valid(puzzle) and check_rows_valid(puzzle):
+		
+		return True
+	
+	else:
+		
+		return False
 
 
 
@@ -185,8 +188,6 @@ def get_cages():
 
 		list_of_strings = user_input.split() #takes user input and turns it into a list of strings
 
-		#for i in range(len(list_of_strings)):
-
 		list_of_ints = [int(i) for i in list_of_strings] #changes the list of stings into a list of ints
 
 		list_of_cages.append(list_of_ints) #puts the list of ints inside the list of cages
@@ -195,7 +196,6 @@ def get_cages():
 
 
 
-print(get_cages())
 
 
 

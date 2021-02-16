@@ -271,21 +271,21 @@ class TestCases(unittest.TestCase):
       cages.append([9, 2, 4, 9])
       self.assertTrue(check_cages_valid(puzzle, cages))
 
-   def test_check_cages1(self):
+   def test_check_cages1(self): 
       puzzle = []
       puzzle.append([5, 1, 2, 3, 4])
       puzzle.append([1, 2, 3, 4, 5])
       puzzle.append([2, 3, 0, 5, 1])
       puzzle.append([3, 0, 0, 1, 2])
-      puzzle.append([0, 4, 5, 2, 3])
+      puzzle.append([1, 4, 5, 2, 3])
       cages = []
       cages.append([6, 2, 0, 5])
       cages.append([7, 3, 2, 6, 7])
       cages.append([9, 2, 4, 9])
-      cages.append([14, 5, 20, 21, 22, 23, 24])
+      cages.append([15, 5, 20, 21, 22, 23, 24])
       self.assertTrue(check_cages_valid(puzzle, cages))
 
-   def test_check_cages2(self):
+   def test_check_cages2(self): #issue
       puzzle = []
       puzzle.append([3, 1, 2, 3, 4])
       puzzle.append([1, 2, 3, 4, 5])
@@ -311,6 +311,8 @@ class TestCases(unittest.TestCase):
       cages.append([9, 2, 4, 9])
       cages.append([5, 2, 20, 21])
       self.assertTrue(check_cages_valid(puzzle, cages))
+
+ 
 
 
       
