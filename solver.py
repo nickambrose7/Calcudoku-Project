@@ -24,53 +24,55 @@ def main():
    
    while row < 5:
 
-   	#print(puzzle)
-   	
-   	puzzle[row][col] += 1 #increase current value
+      #print(puzzle)
+      
+      puzzle[row][col] += 1 #increase current value
 
-   	checks += 1 #inc checks
+      checks += 1 #inc checks
 
-   	if check_valid(puzzle, cages): #if puzzle and cages are valid
+      if check_valid(puzzle, cages): #if puzzle and cages are valid
 
-   		if col < 4: # move over a col if less than four
+         if col < 4: # move over a col if less than four
 
-   			col += 1
+            col += 1
 
-   		else: #move down a row if at the last column
+         else: #move down a row if at the last column
 
-   			row += 1
+            row += 1
 
-   			col = 0
+            col = 0
 
-   	if check_valid(puzzle, cages) == False and puzzle[row][col] >= 5: 
+      else: #puzzle is not valid
 
-   		puzzle[row][col] = 0
+         while puzzle[row][col] >= 5: #puzzle can not be at max value and be equal to 5
 
-   		if col == 0:
+            puzzle[row][col] = 0 #set square back to 0
 
-   			row -= 1
+            if col == 0: #move back a row if column is already on farthest left square
 
-   			col = 4
+               row -= 1
 
-   			backtracks += 1
+               col = 4
 
-   		else:
+               backtracks += 1
 
-   			col -= 1
+            else: #move back a column 
 
-   			backtracks += 1
+               col -= 1
+
+               backtracks += 1
 
   
 
    print('\n--Solution--\n')
 
    for i in range(len(puzzle)): #Turns list of numbers into line of strings
-   	
-   	for j in range(5):
+      
+      for j in range(5):
 
-   		puzzle[i][j] = str(puzzle[i][j])
+         puzzle[i][j] = str(puzzle[i][j])
 
-   	print(' '.join(puzzle[i]))
+      print(' '.join(puzzle[i]))
  
 
    print('\nchecks:', checks, 'backtracks:', backtracks)
